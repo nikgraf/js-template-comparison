@@ -1,0 +1,52 @@
+<!DOCTYPE html>  <html> <head>   <title>template.coffee</title>   <meta http-equiv="content-type" content="text/html; charset=UTF-8">   <link rel="stylesheet" media="all" href="docco.css" /> </head> <body>   <div id="container">     <div id="background"></div>          <table cellpadding="0" cellspacing="0">       <thead>         <tr>           <th class="docs">             <h1>               template.coffee             </h1>           </th>           <th class="code">           </th>         </tr>       </thead>       <tbody>                               <tr id="section-1">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-1">&#182;</a>               </div>               <p>tmpl extension we use in our templates</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">$</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="nx">$</span><span class="p">.</span><span class="nx">tmpl</span><span class="p">.</span><span class="nx">tag</span><span class="p">,</span></pre></div>             </td>           </tr>                               <tr id="section-2">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-2">&#182;</a>               </div>               <p>provides an easy way to access translations in jquery-global</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="s2">&quot;t&quot;</span><span class="o">:</span>
+    <span class="nv">_default:</span>
+      <span class="nv">$2: </span><span class="s1">&#39;null&#39;</span><span class="p">,</span></pre></div>             </td>           </tr>                               <tr id="section-3">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-3">&#182;</a>               </div>               <p>TODO check out why the second line is necessary and $1.split('.'); doesn't work the first time if
+we use string concatination in a template tag</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nv">open: </span><span class="s2">&quot;var localize_path = $1.split(&#39;.&#39;);</span>
+<span class="s2">          if(typeof(localize_path) == &#39;string&#39;) {localize_path = localize_path.split(&#39;.&#39;);};</span>
+<span class="s2">          var depth = localize_path.length;</span>
+<span class="s2">          var localized = jQuery.global.localize(localize_path[0], $2);</span>
+<span class="s2">          for(i = 1; i &lt; depth; i++) { localized = localized[localize_path[i]]; };</span>
+<span class="s2">          _.push(localized);&quot;</span></pre></div>             </td>           </tr>                               <tr id="section-4">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-4">&#182;</a>               </div>               <p>generates a gravatar image by it's given email</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="s2">&quot;gravatar&quot;</span><span class="o">:</span>
+    <span class="nv">_default:</span>
+      <span class="nv">$2: </span><span class="s1">&#39;null&#39;</span><span class="p">,</span>
+    <span class="nv">open: </span><span class="s2">&quot;hashed_email = md5(email);</span>
+<span class="s2">          src = &#39;http://www.gravatar.com/avatar/&#39; + hashed_email + &#39;.png&#39;;</span>
+<span class="s2">          if($2) { src += &#39;?s=&#39; + $2; };</span>
+<span class="s2">          _.push(&#39;&lt;img src=\&quot;&#39; + src + &#39;\&quot;&gt;&#39;);&quot;</span>
+<span class="p">)</span></pre></div>             </td>           </tr>                               <tr id="section-5">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-5">&#182;</a>               </div>               <p>simulate a dataset which could come from localstorage or fetched via ajax</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nv">data =</span>
+  <span class="nv">organisation:</span>
+    <span class="nv">name: </span><span class="s1">&#39;Brunch ~ with coffee&#39;</span>
+    <span class="nv">type: </span><span class="s1">&#39;open_source&#39;</span>
+    <span class="nv">since: </span><span class="mi">2011</span>
+    <span class="nv">team: </span><span class="p">[</span>
+      <span class="nv">nik =</span>
+        <span class="nv">name: </span><span class="s2">&quot;Nik Graf&quot;</span>
+        <span class="nv">email: </span><span class="s2">&quot;nik&quot;</span> <span class="o">+</span> <span class="s2">&quot;@&quot;</span> <span class="o">+</span> <span class="s2">&quot;deck.cc&quot;</span>
+      <span class="nv">tosh =</span>
+        <span class="nv">name: </span><span class="s2">&quot;Tosh&quot;</span>
+        <span class="nv">email: </span><span class="s2">&quot;tosh&quot;</span> <span class="o">+</span> <span class="s2">&quot;@&quot;</span> <span class="o">+</span> <span class="s2">&quot;deck.cc&quot;</span> <span class="p">]</span></pre></div>             </td>           </tr>                               <tr id="section-6">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-6">&#182;</a>               </div>               <p>set prefered language for jquery-global</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">$</span><span class="p">.</span><span class="nx">global</span><span class="p">.</span><span class="nx">preferCulture</span> <span class="s2">&quot;en&quot;</span></pre></div>             </td>           </tr>                               <tr id="section-7">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-7">&#182;</a>               </div>               <p>add translations</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">$</span><span class="p">.</span><span class="nx">global</span><span class="p">.</span><span class="nx">localize</span><span class="p">(</span><span class="s2">&quot;site&quot;</span><span class="p">,</span> <span class="s2">&quot;en&quot;</span><span class="p">,</span>
+  <span class="nv">organisation:</span>
+    <span class="nv">since: </span><span class="s1">&#39;since&#39;</span>
+    <span class="nv">type: </span><span class="s1">&#39;type&#39;</span>
+    <span class="nv">typeList:</span>
+      <span class="nv">open_source: </span><span class="s1">&#39;open source&#39;</span>
+    <span class="nv">team: </span><span class="s1">&#39;team&#39;</span>
+<span class="p">)</span></pre></div>             </td>           </tr>                               <tr id="section-8">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-8">&#182;</a>               </div>               <p>eco template string</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nv">template = </span><span class="s1">&#39;</span>
+<span class="s1">  &lt;h1&gt;${organisation.name}&lt;/h1&gt;</span>
+<span class="s1">  &lt;dl&gt;</span>
+<span class="s1">    &lt;dt&gt;{{t &quot;site.organisation.type&quot; }}&lt;/dt&gt;</span>
+<span class="s1">    &lt;dd&gt;{{t &quot;site.organisation.typeList.&quot; + organisation.type }}&lt;/dd&gt;</span>
+<span class="s1">    &lt;dt&gt;{{t &quot;site.organisation.since&quot; }}&lt;/dt&gt;</span>
+<span class="s1">    &lt;dd&gt;${organisation.since}&lt;/dd&gt;</span>
+<span class="s1">  &lt;/dl&gt;</span>
+
+<span class="s1">  &lt;h2&gt;{{t &quot;site.organisation.team&quot; }}&lt;/h2&gt;</span>
+<span class="s1">  &lt;ul&gt;</span>
+<span class="s1">    {{each( i, member ) organisation.team}}</span>
+<span class="s1">      &lt;li&gt;{{gravatar(32) member.email }} ${member.name}&lt;/li&gt;</span>
+<span class="s1">    {{/each}}</span>
+<span class="s1">  &lt;/ul&gt;</span>
+<span class="s1">  &#39;</span></pre></div>             </td>           </tr>                               <tr id="section-9">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-9">&#182;</a>               </div>               <p>compile template</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nv">jqueryTemplate = </span><span class="nx">$</span><span class="p">.</span><span class="nx">template</span>  <span class="kc">null</span><span class="p">,</span> <span class="nx">template</span></pre></div>             </td>           </tr>                               <tr id="section-10">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-10">&#182;</a>               </div>               <p>appending the rendered template when document is loaded</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span> <span class="o">-&gt;</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.container&#39;</span><span class="p">).</span><span class="nx">append</span> <span class="nx">$</span><span class="p">.</span><span class="nx">tmpl</span><span class="p">(</span><span class="nx">jqueryTemplate</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span>
+
+</pre></div>             </td>           </tr>                </tbody>     </table>   </div> </body> </html> 
