@@ -10,6 +10,7 @@ This project only contains examples to see how they are used. For performance te
 
 * [eco](https://github.com/sstephenson/eco)
 * [jQuery-templ](http://api.jquery.com/category/plugins/templates/)
+* next to come [handlebars](https://github.com/wycats/handlebars.js)
 
 ## Requirements
 
@@ -59,7 +60,7 @@ So i came up with this example:
     organisation:
       since: 'since'
       type: 'type'
-      type_list:
+      typeList:
         open_source: 'open source'
       team: 'team'
 
@@ -73,4 +74,4 @@ example:
 
 Please recompile documents after changing the code via
 
-    ./rundocco.sh    
+    ./rundocco.sh
