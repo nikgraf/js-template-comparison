@@ -64,7 +64,7 @@ So i came up with this example:
         open_source: 'open source'
       team: 'team'
 
-## Develop
+## Development
 
 Run the runcoffee shell script to compile the files for an engine.
 
