@@ -44,7 +44,7 @@
     organisation: {
       since: 'since',
       type: 'type',
-      type_list: {
+      typeList: {
         open_source: 'open source'
       },
       team: 'team'
@@ -55,7 +55,7 @@
 \
   <dl>\
     <dt><%= @t "site.organisation.type" %></dt>\
-    <dd><%= @t "site.organisation.type_list.#{@organisation.type}" %></dd>\
+    <dd><%= @t "site.organisation.typeList.#{@organisation.type}" %></dd>\
     <dt><%= @t "site.organisation.since" %></dt>\
     <dd><%= @organisation.since %></dd>\
   </dl>\
